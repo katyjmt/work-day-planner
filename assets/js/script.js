@@ -1,17 +1,14 @@
-// Select HTML elements:
-const $currentDay = $('#currentDay'); // Select div to contain current date
-const $saveButtons = $('.saveBtn'); // Select all save buttons
-const $hour = $('.time-block'); // Select time block divs
-let $currentHour = dayjs().hour();
-
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
 $(function () {
 
-  // Add current date to top of page
+  // Select HTML elements:
+  const $currentDay = $('#currentDay'); // Select div to contain current date
+  const $saveButtons = $('.saveBtn'); // Select all save buttons
+  const $hour = $('.time-block'); // Select time block divs
   let today = dayjs();
-  $currentDay.text(today.format('dddd, MMMM Do'));
+  let $currentHour = today.hour();
+
+  // Add current date to top of page
+  $currentDay.text(today.format('dddd, MMMM D'));
 
   // Retrieve all descriptions in local storage then update the textareas with their text
   function updateTaskDesc() {
